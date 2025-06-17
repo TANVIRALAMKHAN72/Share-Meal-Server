@@ -32,7 +32,6 @@ admin.initializeApp({
 });
 
 
-
 const verifyFirebaseToken = async (req, res, next) => {
 const authHeader = req.headers?.authorization;
 
@@ -63,7 +62,6 @@ const usersCollection = client.db("share_meal").collection('users');
 const foodRequestsCollection = client.db("share_meal").collection('foodRequests');
 
 
-
    app.get('/foods', async (req, res) => {
       const email = req.query.email;
       let query = {};
@@ -86,7 +84,6 @@ app.post('/foods', async (req, res) => {
     res.status(500).send({ error: "Failed to add food." });
   }
 });
-
 
 
 app.put('/foods/:id', async (req, res) => {
@@ -140,7 +137,6 @@ app.get('/foods/:id', async (req, res) => {
 });
 
 
-
 app.post('/food-requests', async (req, res) => {
   const requestData = req.body;
   try {
@@ -181,7 +177,6 @@ app.get('/food-requests', verifyFirebaseToken, async (req, res) => {
 });
 
 
-
 app.post('/users', async (req, res) => {
     const userProfile = req.body;
     const result = await usersCollection.insertOne(userProfile);
@@ -199,12 +194,11 @@ app.post('/users', async (req, res) => {
 run().catch(console.dir);
 
 
-
 app.get('/', (req, res) => {
   res.send('Share Meal is testing!')
 })
 
-// app.listen(port, () => {
-//   console.log(`Share meal server is running on port ${port}`)
-// })
-module.exports = app;
+app.listen(port, () => {
+  console.log(`Share meal server is running on port ${port}`)
+})
+// module.exports = app;

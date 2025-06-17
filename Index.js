@@ -178,13 +178,11 @@ app.get('/food-requests', verifyFirebaseToken, async (req, res) => {
   }
 });
 
-
 app.post('/users', async (req, res) => {
     const userProfile = req.body;
     const result = await usersCollection.insertOne(userProfile);
     res.send(result);
 })
-
 
     await client.db("admin").command({ ping: 1 });
     console.log("Pinged your deployment. You successfully connected to MongoDB!");

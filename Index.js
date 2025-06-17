@@ -19,11 +19,6 @@ app.use(express.json());
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@nexus0.ytaptl9.mongodb.net/?retryWrites=true&w=majority&appName=Nexus0`;
 
 
-
-
-
-
-
 const client = new MongoClient(uri, {
   serverApi: {
     version: ServerApiVersion.v1,
@@ -68,7 +63,7 @@ const usersCollection = client.db("share_meal").collection('users');
 const foodRequestsCollection = client.db("share_meal").collection('foodRequests');
 
 
-   app.get('/foods', async (req, res) => {
+  app.get('/foods', async (req, res) => {
       const email = req.query.email;
       let query = {};
       if (email) {
@@ -79,6 +74,7 @@ const foodRequestsCollection = client.db("share_meal").collection('foodRequests'
       const result = await cursor.toArray();
       res.send(result);
     });
+    
 
 app.post('/foods', async (req, res) => {
   const foodData = req.body;

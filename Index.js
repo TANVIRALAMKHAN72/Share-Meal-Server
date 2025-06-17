@@ -12,23 +12,16 @@ require('dotenv').config()
 const { ObjectId } = require("mongodb");
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 app.use(cors());
 app.use(express.json());
 
 
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@nexus0.ytaptl9.mongodb.net/?retryWrites=true&w=majority&appName=Nexus0`;
+
+
+
+
+
 
 
 const client = new MongoClient(uri, {

@@ -204,6 +204,7 @@ app.get('/', (req, res) => {
   res.send('Share Meal is testing!')
 })
 
-app.listen(port, () => {
-  console.log(`Share meal server is running on port ${port}`)
-})
+// app.listen(port, () => {
+//   console.log(`Share meal server is running on port ${port}`)
+// })
+module.exports = app;

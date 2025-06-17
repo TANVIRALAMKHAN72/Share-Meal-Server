@@ -74,7 +74,7 @@ const foodRequestsCollection = client.db("share_meal").collection('foodRequests'
       const result = await cursor.toArray();
       res.send(result);
     });
-    
+
 
 app.post('/foods', async (req, res) => {
   const foodData = req.body;
@@ -106,6 +106,7 @@ app.put('/foods/:id', async (req, res) => {
     res.status(500).send({ error: 'Failed to update food' });
   }
 });
+
 
 app.delete('/foods/:id', async (req, res) => {
   const id = req.params.id;
@@ -145,7 +146,6 @@ app.post('/food-requests', async (req, res) => {
     
     const result = await foodRequestsCollection.insertOne(requestData);
 
-  
     const updateResult = await foodCollection.updateOne(
       { _id: new ObjectId(requestData.foodId) },
       { $set: { foodStatus: "requested" } }

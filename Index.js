@@ -29,17 +29,17 @@ const allowedOrigins = [
 
 const corsOptions = {
     origin: function (origin, callback) {
-        
-        if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+        if (!origin || allowedOrigins.includes(origin)) {
             callback(null, true);
         } else {
-            console.warn(`CORS blocked request from origin: ${origin}`);
+            console.log('Blocked by CORS: ', origin);
             callback(new Error('Not allowed by CORS'));
         }
     },
-    credentials: true, 
-    optionsSuccessStatus: 200 
+    credentials: true,
+    optionsSuccessStatus: 200,
 };
+
 
 app.use(cors(corsOptions));
 

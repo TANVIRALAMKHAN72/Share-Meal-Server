@@ -22,7 +22,7 @@ try {
 
 
 const allowedOrigins = [
-    'https://poetic-clafoutis-252a8a.netlify.app',
+    'https://cosmic-elf-3ffb9c.netlify.app',
     'http://localhost:5173', 
     'http://localhost:3000'  
 ];

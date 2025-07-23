@@ -24,7 +24,8 @@ try {
 const allowedOrigins = [
     'https://cosmic-elf-3ffb9c.netlify.app',
     'http://localhost:5173', 
-    'http://localhost:3000'  
+    'http://localhost:3000',
+    'https://share-meal-server-tau.vercel.app'
 ];
 
 const corsOptions = {

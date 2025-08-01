@@ -1,6 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-require('dotenv').config();  
+require('dotenv').config();  
 const app = express();
 const port = process.env.PORT || 3000;
 
@@ -199,4 +199,16 @@ app.get('/', (req, res) => {
     res.send('Share Meal is testing!')
 })
 
-module.exports = app;
+
+app.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
+
+    setInterval(() => {
+        const serverUrl = 'https://staynest-server.vercel.app';
+        fetch(serverUrl)
+            .then(res => console.log(`✅ Server pinged successfully at ${new Date().toLocaleTimeString()}`))
+            .catch(err => console.error(`❌ Error pinging server:`, err.message));
+    }, 3 * 60 * 1000); 
+});
+
+module.exports = app; 

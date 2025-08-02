@@ -64,7 +64,7 @@ const verifyFirebaseToken = async (req, res, next) => {
 
 async function run() {
     try {
-        await client.connect();
+        // await client.connect();
 
         const foodCollection = client.db("share_meal").collection('foods');
         const usersCollection = client.db("share_meal").collection('users');
@@ -202,13 +202,6 @@ app.get('/', (req, res) => {
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
-
-    setInterval(() => {
-        const serverUrl = 'https://staynest-server.vercel.app';
-        fetch(serverUrl)
-            .then(res => console.log(`✅ Server pinged successfully at ${new Date().toLocaleTimeString()}`))
-            .catch(err => console.error(`❌ Error pinging server:`, err.message));
-    }, 3 * 60 * 1000); 
 });
 
 module.exports = app; 
